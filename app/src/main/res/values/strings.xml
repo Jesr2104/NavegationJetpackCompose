@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">NavegationJetpackCompose</string>
+
+    <!--  Title Screens  -->
+    <string name="title_screen1">Screen 1</string>
+    <string name="title_screen2">Screen 2</string>
+    <string name="title_screen3">Screen 3</string>
+    <string name="title_screen4">Screen 4 - Final</string>
+
 </resources>
