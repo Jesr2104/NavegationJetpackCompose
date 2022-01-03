@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -19,7 +22,10 @@ import com.justjump.navegationjetpackcompose.ui.components.Button
 import com.justjump.navegationjetpackcompose.ui.components.TopBar
 
 @Composable
-fun Screen1(onClick: () -> Unit) {
+fun Screen1(onClick: (String) -> Unit) {
+
+    val code by rememberSaveable { mutableStateOf(getIdOrder())}
+
     Scaffold(
         topBar = {
             TopBar(title = stringResource(R.string.title_screen1))
@@ -34,13 +40,25 @@ fun Screen1(onClick: () -> Unit) {
                 Column(modifier = Modifier.padding(30.dp,10.dp,30.dp,10.dp)) {
                     Button("Button next screen"){
                         // event to navigate to the next Screen!!
-                        onClick()
+                        onClick(code)
                     }
                 }
+                Text("Code: $code")
+                Text("this code will be passed as a parameter to the rest of the screens", fontSize = 10.sp)
                 Text("1", fontWeight = FontWeight(700), fontSize = 200.sp)
             }
         }
     )
+}
+
+fun getIdOrder(): String {
+    var cont = 0
+    var result = ""
+    while (cont<3){
+        result += (0..9).random()
+        cont++
+    }
+    return "E-${result}K"
 }
 
 @Preview(showBackground = true)

@@ -19,7 +19,7 @@ import com.justjump.navegationjetpackcompose.ui.components.Button
 import com.justjump.navegationjetpackcompose.ui.components.TopBar
 
 @Composable
-fun Screen3(onClick: () -> Unit, onClickToBack: () -> Unit){
+fun Screen3(code: String, onClick: (String) -> Unit, onClickToBack: () -> Unit){
     Scaffold(
         topBar = {
             TopBar(title = stringResource(R.string.title_screen3)){
@@ -39,7 +39,7 @@ fun Screen3(onClick: () -> Unit, onClickToBack: () -> Unit){
                         "Button next screen",
                     ){
                         // event to navigate to the next Screen!!
-                        onClick()
+                        onClick(code)
                     }
                 }
                 Text("3", fontWeight = FontWeight(700), fontSize = 200.sp)

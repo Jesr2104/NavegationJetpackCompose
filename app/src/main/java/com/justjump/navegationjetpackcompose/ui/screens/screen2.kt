@@ -11,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.justjump.navegationjetpackcompose.R
@@ -19,7 +18,7 @@ import com.justjump.navegationjetpackcompose.ui.components.Button
 import com.justjump.navegationjetpackcompose.ui.components.TopBar
 
 @Composable
-fun Screen2(onClick: () -> Unit, onClickToBack: () -> Unit){
+fun Screen2(code: String, onClick: (String) -> Unit, onClickToBack: () -> Unit){
     Scaffold(
         topBar = {
             TopBar(title = stringResource(R.string.title_screen2)){
@@ -37,7 +36,7 @@ fun Screen2(onClick: () -> Unit, onClickToBack: () -> Unit){
                 Column(modifier = Modifier.padding(30.dp,10.dp,30.dp,10.dp)) {
                     Button("Button next screen"){
                         // event to navigate to the next Screen!!
-                        onClick()
+                        onClick(code)
                     }
                 }
                 Text("2", fontWeight = FontWeight(700), fontSize = 200.sp)

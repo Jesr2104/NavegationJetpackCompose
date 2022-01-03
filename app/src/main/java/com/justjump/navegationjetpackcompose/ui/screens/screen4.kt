@@ -19,7 +19,7 @@ import com.justjump.navegationjetpackcompose.ui.components.Button
 import com.justjump.navegationjetpackcompose.ui.components.TopBar
 
 @Composable
-fun Screen4(onClick: () -> Unit, onClickToBack: () -> Unit, onClickToHome: () -> Unit){
+fun Screen4(code: String, onClick: () -> Unit, onClickToBack: () -> Unit, onClickToHome: () -> Unit){
     Scaffold(
         topBar = {
             TopBar(title = stringResource(R.string.title_screen4)){
@@ -40,6 +40,7 @@ fun Screen4(onClick: () -> Unit, onClickToBack: () -> Unit, onClickToHome: () ->
                         onClick()
                     }
                 }
+                Text("the parameter is: $code")
                 Text("4", fontWeight = FontWeight(700), fontSize = 200.sp)
             }
             Column(

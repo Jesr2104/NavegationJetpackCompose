@@ -12,9 +12,15 @@ sealed class NavItem(
     // list of routes
     //----------------------------------------------------------------------
         object Screen1: NavItem("screen1")
-        object Screen2: NavItem("screen2")
-        object Screen3: NavItem("screen3")
-        object Screen4: NavItem("screen4")
+        object Screen2: NavItem("screen2", listOf(NavArg.Code)){
+            fun createNavRouter(code: String) = "$baseRoute/${code}"
+        }
+        object Screen3: NavItem("screen3", listOf(NavArg.Code)){
+            fun createNavRouter(code: String) = "$baseRoute/${code}"
+        }
+        object Screen4: NavItem("screen4", listOf(NavArg.Code)){
+            fun createNavRouter(code: String) = "$baseRoute/${code}"
+        }
 
     //----------------------------------------------------------------------
 
@@ -30,4 +36,6 @@ sealed class NavItem(
     val args = navArgs.map { navArgument(it.Key){ type = it.navType} }
 }
 
-enum class NavArg(val Key: String, val navType: NavType<*>) {}
+enum class NavArg(val Key: String, val navType: NavType<*>) {
+    Code("code", NavType.StringType)
+}
